@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Emprestimos01.Models.Emprestimos>
+
+@{
+    Emprestimos emprestimos = new Emprestimos();
+
+    double resultado = (double)emprestimos.valorEntrada - emprestimos.valorSolicitado;
+    ViewBag.resultado = emprestimos.valorEntrada - emprestimos.valorSolicitado;
+    ViewData["Title"] = "Resultado";
+    //ViewData["Resultado"] = resultado;
+    ViewBag.ValorSolicitado = emprestimos.ToString().Length;
+
+}
+
+<h1 align="center">Resultado do Emprestimo </h1>
+<br />
+<div class="container">
+    <div class="center">
+        <table border="1" width=100%>
+            <thead>
+            <td>
+                Usuário
+            </td>
+            <td>
+                Valor Solicitado
+            </td>
+            <td>
+                Valor Entrada
+            </td>
+            <td>
+                Restante
+            </td>
+            <td>
+                Aprovar Empréstimo
+            </td>
+            </thead>
+
+            <thead>
+            <td>
+                Usuário
+            </td>
+            <td>
+                    @Html.DisplayNameFor(model => model.valorSolicitado)
+                    @*@Write(emprestimos.valorSolicitado);*@
+            </td>
+            <td>
+                    @Html.DisplayNameFor(Model => Model.valorEntrada);
+            </td>
+            <td>
+                    @ViewData["Resultado"]
+            </td>
+            <td>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <div class="align-items-center">
+                                <input class="align-items-center" type="checkbox" aria-label="Radio button for following text input" value="true">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            </thead>
+
+            <thead>
+            <td>
+                Usuário
+            </td>
+            <td>
+                    @ViewBag.ValorSolicitado
+                    @ViewBag.resultado
+                    @Html.DisplayNameFor(model => model.valorSolicitado)
+            </td>
+            <td>
+                    @Html.DisplayNameFor(Model => Model.valorEntrada);
+            </td>
+            <td>
+                    @ViewData["Resultado"]
+            </td>
+            <td>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input type="checkbox" aria-label="Radio button for following text input">
+                        </div>
+                    </div>
+                </div>
+            </td>
+            </thead>
+
+
+        </table>
+    </div>
+</div>
+<br />
+
+<div class="container">
+    <div class="text-right">
+        <div class="btn btn-primary">Enviar Aprovações</div>
+    </div>
+
+    <div class="text-left">
+        <div class="btn btn-outline-light">Voltar</div>
+    </div>
+</div>
